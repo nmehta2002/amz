@@ -1,0 +1,59 @@
+@startuml
+
+entity AccessPoint {
+  * accessPointId
+  --
+  * accessPointStatus
+  * bucketId
+  * name
+  * accessPointPolicy
+}
+
+entity Bucket {
+  * bucketId
+  --
+  * bucketStatus
+  * bucketId
+  * accessPointIds
+  * bucketPolicy
+  * lifeCycleConfiguration
+  * name
+  * navyId
+  * creationTime
+}
+
+entity Lock {
+  * id
+  --
+  * creationTime
+  * expiration
+  * lastUpdateTime
+  * note
+  * updateCount
+}
+
+entity Navy {
+  * navyId
+  --
+  * bucketIds
+  * certificate
+  * creationTime
+  * instances
+  * outpostArn
+  * ownerAccountId
+  * permenantTermination
+  * rollbackSoftware
+  * securityGroupId
+  * subnetId
+  * targetSoftwareVersionMap
+  * updateCount
+  * accountType
+}
+
+
+Bucket }o..o| Navy
+Lock |o..o| Navy
+AccessPoint }o..o| Bucket
+
+
+@enduml
