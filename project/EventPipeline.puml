@@ -1,0 +1,13 @@
+@startuml
+
+[SQS_Event_Queue] --> [Commodore]
+
+[Commodore] --> [ElasticSearch]
+[Commodore] --> [CloudTrail]
+[Commodore] --> [CloudWatch]
+
+[DP] --> [SQS_Event_Queue]
+[CP] --> [SQS_Event_Queue]
+[BreakWater] --> [SQS_Event_Queue]
+
+@enduml
